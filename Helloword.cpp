@@ -43,11 +43,11 @@ int main()
     // cin >> a;
     // cout << "你输入的数字是：" << a << endl;
     
-    float a = 1;
-    float b = 3;
+    // float a = 1;
+    // float b = 3;
 
-    float c = a / b; 
-    cout << "c = " << c << endl;
+    // float c = a / b; 
+    // cout << "c = " << c << endl;
 
     system("pause");
     return 0;
