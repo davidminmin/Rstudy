@@ -7,7 +7,7 @@
 // 预处理  定义宏
 //#define PI 3.14159
 //const double PI = 3.14159;
-
+void bubblesort(int * arr, int len); 
 int main()
 {
 
@@ -258,8 +258,113 @@ int main()
     // cout << "p = " << p << endl;
     // cout << "*p = " << *p << endl;
 
-    
+    // int * p = NULL; //指针初始化为NULL,无法访问
+    // cout << "p = " << p << endl;
+    // *p = 10;//访问空指针会导致程序崩溃
+    // cout << "*p = " << *p << endl;
 
+    // int *p = new int;   // 分配空间
+    // *p = 100;           // 给这块空间赋值
+    // cout << *p << endl; // 输出100
+    // delete p;          // 释放空间，用 new 分配的内存需要用 delete 释放，否则会造成内存泄漏，此次程序运行期间会一直被占用，结束程序后内存被回收
+
+    // int *p = (int *)0x00000001; // 指针指向一个非法地址
+    // cout << *p << endl; // 访问非法地址会导致程序崩溃
+
+    // int a = 10,b = 20;
+    // const int * p = &a; // 常量指针 p 指向 a 的地址，不能通过 p 修改 a 的值，但是可以修改指针的指向，如由指向a转为指向b
+    // cout << "a = " << a << endl;
+    // cout << "p = " << p << endl; // 输出指针 p 的值，即 a 的地址
+    // cout << "*p = " << *p << endl; // 输出指针 p 指向的值，即 a 的值
+    // p = &b;
+    // cout << "p = " << p << endl; // 输出指针 p 的值，即 a 的地址
+    // cout << "*p = " << *p << endl;
+
+    // int a = 10, b = 20;
+    // int * const p = &a; // 指针常量 p 指向 a 的地址，不能修改指针的指向，但是可以通过 p 修改 a 的值
+    // cout << "*p = " << *p << endl;
+    // *p = 30; // 修改 a 的值
+    // cout << "*p = " << *p << endl; 
+    // cout << "a = " << a << endl;
+
+    // int a = 10;
+    // const int * const p = &a;// 修饰指针 p 指向 a 的地址，不能通过 p 访问 a 的值，也不能修改指针的指向
+
+    // int arr[5] = { 4, 2, 3, 1, 5 };
+    // int len = sizeof(arr) / sizeof(arr[0]);
+    // bubblesort(arr, len); // 调用冒泡排序函数
+    // cout << "排序后的数组：";
+    // for (int i = 0; i < len; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+    
+    // struct Student
+    // {
+    //     char name[20];
+    //     int age;
+    //     float score;
+    // };
+    // Student stu = { "张三", 20, 90.5f };
+    // cout << "姓名：" << stu.name << endl;   
+    // cout << "年龄：" << stu.age << endl;
+    // cout << "成绩：" << stu.score << endl;
+    struct student
+    {
+        char name[20];
+        int age;
+        float score;
+    };
+    // student stu[3] = { {"张三", 20, 90.5f}, {"李四", 18, 80.5f}, {"王五", 19, 70.5f} };
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     cout << "姓名：" << stu[i].name << endl;   
+    //     cout << "年龄：" << stu[i].age << endl;
+    //     cout << "成绩：" << stu[i].score << endl;
+    // }
+
+    // student stu;
+    // student *p = &stu;
+    // stu = {"张三", 20, 90.5f};
+    // cout << "姓名：" << p->name << endl;   
+    // cout << "年龄：" << p->age << endl; 
+    // cout << "成绩：" << p->score << endl;
+    // p->age = 18;
+    // cout << "年龄：" << p->age << endl;
+
+    // struct teacher
+    // {
+    //     char name[20];
+    //     int age;
+    //     student stu;
+    // };
+    // teacher t;
+    // t.stu = {"张三", 20, 90.5f};
+    // cout << "姓名：" << t.stu.name << endl;
+    
+    
     system("pause");
     return 0;
+}
+
+
+/**
+ * @brief 冒泡排序算法实现
+ * @param arr 待排序的整型数组指针
+ * @param len 数组的长度
+ * 
+ * 该函数使用冒泡排序算法对整型数组进行升序排序。
+ * 算法时间复杂度为O(n²)，空间复杂度为O(1)。
+ */
+void bubblesort(int * arr, int len) { 
+    for (int i = 0; i < len - 1; i++) {
+        for (int j = 0; j < len - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // 交换 arr[j] 和 arr[j + 1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }
